@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "laboratorio-adk-ucv"
+version = "0.1.0"
+description = "Mono-agente academico UCV construido con Google ADK."
+authors = ["UCV <laboratorio@ucv.edu.pe>"]
+readme = "README.md"
+packages = [{ include = "agente_ucv" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+google-adk = "^1.0.0"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
