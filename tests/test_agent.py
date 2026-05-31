@@ -29,6 +29,13 @@ def test_explicar_concepto_vacio() -> None:
         "explicacion": "El concepto no puede estar vacio.",
     }
 
+def test_explicar_concepto_tipo_incorrecto() -> None:
+    resultado = explicar_concepto(123)
+    assert resultado == {
+        "status": "error",
+        "explicacion": "El concepto debe ser un texto.",
+    }
+
 # Pruebas para la herramienta calcular_promedio.
 def test_calcular_promedio_correcto() -> None:
     resultado = calcular_promedio([18, 16, 15])
@@ -44,6 +51,30 @@ def test_calcular_promedio_lista_vacia() -> None:
         "status": "error",
         "promedio": None,
         "mensaje": "La lista de notas no puede estar vacia.",
+    }
+
+def test_calcular_promedio_tipo_incorrecto() -> None:
+    resultado = calcular_promedio("18,16,15")
+    assert resultado == {
+        "status": "error",
+        "promedio": None,
+        "mensaje": "Las notas deben enviarse en una lista.",
+    }
+
+def test_calcular_promedio_nota_no_numerica() -> None:
+    resultado = calcular_promedio([18, "dieciseis", 15])
+    assert resultado == {
+        "status": "error",
+        "promedio": None,
+        "mensaje": "Todas las notas deben ser numeros.",
+    }
+
+def test_calcular_promedio_booleano_no_valido() -> None:
+    resultado = calcular_promedio([18, True, 15])
+    assert resultado == {
+        "status": "error",
+        "promedio": None,
+        "mensaje": "Todas las notas deben ser numeros.",
     }
 
 def test_calcular_promedio_fuera_de_rango() -> None:

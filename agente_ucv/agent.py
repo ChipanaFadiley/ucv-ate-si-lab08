@@ -3,14 +3,14 @@
 from numbers import Real
 try:
     from google.adk.agents.llm_agent import Agent  # type: ignore[reportMissingImports]
-except ImportError:
-    class Agent:
+except ImportError:  # pragma: no cover
+    class Agent:  # pragma: no cover
         """Fallback Agent stub when google.adk is unavailable."""
 
-        def __init__(self, *args, **kwargs):
+        def __init__(self, *args, **kwargs):  # pragma: no cover
             self.config = {"args": args, "kwargs": kwargs}
 
-        def __repr__(self):
+        def __repr__(self):  # pragma: no cover
             return "Agent(dummy)"
 
 conceptos_7 = {
