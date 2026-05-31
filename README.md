@@ -1,4 +1,4 @@
-# Laboratorio ADK UCV
+# Laboratorio 08 - SI
 
 Mono-agente academico construido con Python, Google ADK y Poetry para el
 laboratorio de Sistemas Inteligentes.
